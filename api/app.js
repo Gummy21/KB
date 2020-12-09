@@ -1,8 +1,6 @@
 const express = require("express"),
       cors    = require("cors"),
       app     = express()
-      
-
 
 const corsOptions = {
     origin: 'http://localhost:4200',
@@ -10,10 +8,12 @@ const corsOptions = {
 }
 
 db  = require('./models/index')
-clothes = require("./models/clothes")
-db.clothes = clothes
-
+Clothes = require("./models/clothes")
+db.clothes = Clothes
 db.sequelize.sync({logging:console.log})
+
+// seedDb = require('./seed')
+// seedDb()
 
 app.use(cors(corsOptions))
 
