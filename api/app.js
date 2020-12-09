@@ -8,7 +8,11 @@ const corsOptions = {
     origin: 'http://localhost:4200',
     optionsSuccessStatus: 200
 }
-db  = require('./models/')
+
+db  = require('./models/index')
+clothes = require("./models/clothes")
+db.clothes = clothes
+
 db.sequelize.sync({logging:console.log})
 
 app.use(cors(corsOptions))

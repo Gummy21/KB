@@ -10,20 +10,6 @@ const sequelize = new Sequelize('products', 'root', '', {
   }
 })
 
-var Clothes = sequelize.define('Clothes', {
-    id: { 
-      primaryKey: true,
-      autoIncrement: true,
-      type: Sequelize.INTEGER
-    },
-    title: Sequelize.STRING,
-    price: Sequelize.INTEGER,
-    img: Sequelize.STRING
-},{
-  freezeTableName: true,
-  timestamps: false
-}
-);
 
 
 let db = {};
@@ -31,7 +17,6 @@ let db = {};
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
 
 module.exports = db;
 
