@@ -20,6 +20,7 @@ app.use(cors(corsOptions))
 // All clothes
 app.get("/", function (req,res){
     db.clothes.findAll().then (clothes =>{
+        console.log(clothes)
         res.send(clothes)
     }).catch(err =>{
         console.log(err)
