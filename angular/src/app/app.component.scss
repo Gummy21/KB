@@ -1,0 +1,14 @@
+$nav-text:  rgba(0,0,0,0.5);
+$nav-text-hov: rgba(0,0,0,0.8);
+
+.navbar-brand{
+    color:black
+}
+.nav-link {
+    color: $nav-text;
+    &:hover {
+        color: $nav-text-hov;
+    }
+}
+
+
