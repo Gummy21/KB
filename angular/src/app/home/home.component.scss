@@ -1,0 +1,19 @@
+$tab-width:49%;
+$tab-height: 60%;
+$tab-padding: 5em;
+
+.mens-tab{
+    background-color: blue;
+    width: $tab-width;
+    height: $tab-height;
+    padding:$tab-padding;
+    margin-right:0.5em;
+}
+
+.womens-tab{
+    background-color:pink;
+    width:$tab-width;
+    height:$tab-height;
+    padding:$tab-padding;
+    margin-left:0.5em;
+}

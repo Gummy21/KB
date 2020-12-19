@@ -18,4 +18,8 @@ export class ApiServiceService {
     getSpecific(id){
       return this.http.get(`${this.apiUrl}/${id}`)
     }
+
+    getGender(gender){
+      return this.http.get(`${this.apiUrl}/${gender}`)
+    }
 }
