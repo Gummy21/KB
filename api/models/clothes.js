@@ -8,7 +8,8 @@ var Clothes = db.sequelize.define('clothes', {
     },
     title: db.Sequelize.TEXT,
     price: db.Sequelize.INTEGER,
-    img: db.Sequelize.TEXT
+    img: db.Sequelize.TEXT,
+    gender: db.Sequelize.INTEGER
 },{
   freezeTableName: true,
   timestamps: false

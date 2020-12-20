@@ -11,6 +11,7 @@ import { PayComponent } from './pay/pay.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenComponent } from './men/men.component';
 import { WomenComponent } from './women/women.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WomenComponent } from './women/women.component';
     DetailComponent,
     PayComponent,
     MenComponent,
-    WomenComponent
+    WomenComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

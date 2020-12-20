@@ -6,8 +6,26 @@ $nav-text-hov: rgba(0,0,0,0.8);
 }
 .nav-link {
     color: $nav-text;
+    
     &:hover {
         color: $nav-text-hov;
+    }
+}
+
+footer{
+    margin-top: 2em;
+}
+
+.footer-headers{
+    font-size:1.3em;
+}
+
+.links{
+    color: rgba(0,0,0, 0.5);
+    text-decoration: none;
+    &:hover {
+        color:rgba(0,0,0,0.8);
+        text-decoration: none;
     }
 }
 
