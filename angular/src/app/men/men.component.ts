@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./men.component.scss']
 })
 export class MenComponent implements OnInit {
-
+  
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  
+  counter(i: number){
+    return new Array(i)
+  }
 }
