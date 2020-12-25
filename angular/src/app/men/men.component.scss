@@ -1,6 +1,29 @@
+$no-border:0px;
 
 #img{
     width:100%;
     height: 20em;
     object-fit: contain;
+    
+}
+
+.card{
+    border:$no-border
+}
+.card-body{
+    border:$no-border;
+}
+
+
+.selectors{
+    
+    position: relative;
+    border:$no-border;
+    background-color: white;
+    &:focus {
+        outline:none;
+    }
+}
+#filters {
+    margin-bottom: 2em;
 }

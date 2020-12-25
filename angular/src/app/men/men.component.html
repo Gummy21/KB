@@ -1,9 +1,31 @@
-<div class="container">
+    <div class="row" id="filters">
+      
+        <div id="size" class="col-sm" >
+          <select class="selectors">
+            <option selected>Size</option>
+            <option value="Small">S</option>
+            <option value="Medium">M</option>
+            <option value="Large">L</option>
+          </select>
+        </div>
+        <div id="sort" class="col-sm">
+          <select class="selectors">
+            <option selected>Sort by</option>
+            <option value="Small">Lowest price</option>
+            <option value="Medium">Highest price</option>
+
+          </select>
+        </div>
+      </div>
     <div class="row">
+      
       <div class="col-sm-4 card-deck" id="card" *ngFor="let in of counter(30); let i = index">
         
-        <div class="card border-light text-left mb-3" >
-            <img class="card-img-top" id="img" src="https://cdn.shopify.com/s/files/1/1735/5687/products/levis-blue-baggy-3.png?v=1490911974" alt="Card image cap">
+        <div class="card text-left mb-3" >
+            <a routerLink="/detail">
+              <img class="card-img-top" id="img" src="https://cdn.shopify.com/s/files/1/1735/5687/products/levis-blue-baggy-3.png?v=1490911974" alt="Card image cap">
+            </a>  
+            
             <div class="card-body list-group-item">
             <h5 class="card-title"> title</h5>
             <small class="text-muted">$134</small>
@@ -11,4 +33,3 @@
         </div>
       </div>
     </div>
-  </div>
