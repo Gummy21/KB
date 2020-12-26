@@ -1,20 +1,23 @@
-    <div class="row" id="filters">
+    <div class="row" >
       
-        <div id="size" class="col-sm" >
-          <select class="selectors">
+        <div id="size" class="col-sm filters" >
+          <select class="selectors" [(ngModel)]="size">
             <option selected>Size</option>
             <option value="Small">S</option>
             <option value="Medium">M</option>
             <option value="Large">L</option>
           </select>
         </div>
-        <div id="sort" class="col-sm">
-          <select class="selectors">
+        <div id="sort" class="col-sm filters">
+          <select class="selectors" [(ngModel)]="sort">
             <option selected>Sort by</option>
-            <option value="Small">Lowest price</option>
-            <option value="Medium">Highest price</option>
+            <option value="Low">Lowest price</option>
+            <option value="High">Highest price</option>
 
           </select>
+        </div>
+        <div class="col-sm filters">
+          <button class="btn btn-outline-info btn-sm" type="button" (click)="applyFilter()">Apply</button>
         </div>
       </div>
     <div class="row">

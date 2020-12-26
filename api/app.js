@@ -9,6 +9,7 @@ const corsOptions = {
 
 db  = require('./models/index')
 Clothes = require("./models/clothes")
+Op = db.sequelize
 db.clothes = Clothes
 db.sequelize.sync({logging:console.log})
 
@@ -17,9 +18,14 @@ db.sequelize.sync({logging:console.log})
 
 app.use(cors(corsOptions))
 
-// All clothes
+// Gendered Clothes
+
 app.get("/", function (req,res){
-    db.clothes.findAll().then (clothes =>{
+    const gender = req.query.gender
+
+    console.log(gender)
+    const condition = gender ? {gender: gender}: null
+    db.clothes.findAll({where: condition}).then (clothes =>{
         console.log(clothes)
         res.send(clothes)
     }).catch(err =>{
@@ -28,7 +34,7 @@ app.get("/", function (req,res){
     });
 });
 // Single item
-app.get("/:id", function(req,res){
+app.get("/products/:id", function(req,res){
     const id = req.params.id;
     db.clothes.findAll({where: [id]}).then(single =>{
         res.send(single)
