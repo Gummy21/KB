@@ -35,8 +35,8 @@ app.get("/", function (req,res){
 });
 // Single item
 app.get("/products/:id", function(req,res){
-    const id = req.params.id;
-    db.clothes.findAll({where: [id]}).then(single =>{
+    const clothid = req.query.clothid;
+    db.clothes.findAll({where: {id:clothid}}).then(single =>{
         res.send(single)
     }).catch(err =>{
         console.log(err)

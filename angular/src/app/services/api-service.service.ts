@@ -12,8 +12,8 @@ export class ApiServiceService {
   constructor(private http: HttpClient) { }
 
 
-    getSpecific(id){
-      return this.http.get(`${this.apiUrl}products/${id}`)
+    getSpecific(clothid){
+      return this.http.get(`${this.apiUrl}products/${clothid}`)
     }
     
     getFilter(sort,size){ 

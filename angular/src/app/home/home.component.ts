@@ -9,23 +9,31 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  // private unsub: Subject<any> = new Subject();
-  products =  {};
+  private unsub: Subject<any> = new Subject();
+  m:any;
+  w:any;
   error:any;
-  index: 1;
+  men: Number = 1;
+  women: Number = 2;
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit(){
-    // this.apiService.getAll().pipe(takeUntil(this.unsub)).subscribe(clothes => {
-    //   this.products = clothes
-    //   console.log(clothes)
-    // },err => {
-    //   this.error = err
-    // });
+    this.apiService.getGender(this.men).pipe(takeUntil(this.unsub)).subscribe(clothes => {
+      this.m = clothes[0]
+      console.log(clothes)
+    },err => {
+      this.error = err
+    });
+    this.apiService.getGender(this.women).pipe(takeUntil(this.unsub)).subscribe(clothes => {
+      this.w = clothes[0]
+      console.log(clothes)
+    },err => {
+      this.error = err
+    });
   }
 
   ngOnDestroy(){
-    // this.unsub.next();
-    // this.unsub.complete();
+    this.unsub.next();
+    this.unsub.complete();
   }
 }
