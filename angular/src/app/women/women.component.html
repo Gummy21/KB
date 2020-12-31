@@ -22,16 +22,16 @@
   </div>
 <div class="row">
   
-  <div class="col-sm-4 card-deck" id="card" *ngFor="let in of counter(30); let i = index">
+  <div class="col-sm-4 card-deck" id="card" *ngFor="let clothes of products; let i = index">
     
     <div class="card text-left mb-3" >
         <a routerLink="/detail">
-          <img class="card-img-top" id="img" src="https://cdn.shopify.com/s/files/1/1735/5687/products/levis-blue-baggy-3.png?v=1490911974" alt="Card image cap">
+          <img class="card-img-top" id="img" src="{{clothes.img}}" alt="Card image cap">
         </a>  
         
         <div class="card-body list-group-item">
-        <h5 class="card-title"> title</h5>
-        <small class="text-muted">$134</small>
+        <h5 class="card-title">{{clothes.title}}</h5>
+        <small class="text-muted">{{clothes.price}}</small>
       </div>
     </div>
   </div>

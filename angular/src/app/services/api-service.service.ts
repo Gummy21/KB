@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 export class ApiServiceService {
-  apiUrl: string = 'http://localhost:8887/';
+  apiUrl: string = 'http://localhost:8887/api/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
@@ -16,8 +16,8 @@ export class ApiServiceService {
       return this.http.get(`${this.apiUrl}products/${clothid}`)
     }
     
-    getFilter(sort,size){ 
-      return this.http.get(`${this.apiUrl}?sort=${sort}}?size=${size}`)
+    getFilter(sort,size,gender){ 
+      return this.http.get(`${this.apiUrl}?sort=${sort}?size=${size}?gender=${gender}`)
     }
 
     getGender(gender){

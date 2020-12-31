@@ -18,32 +18,8 @@ db.sequelize.sync({logging:console.log})
 
 app.use(cors(corsOptions))
 
-// Gendered Clothes
 
-app.get("/", function (req,res){
-    const gender = req.query.gender
-
-    console.log(gender)
-    const condition = gender ? {gender: gender}: null
-    db.clothes.findAll({where: condition}).then (clothes =>{
-        console.log(clothes)
-        res.send(clothes)
-    }).catch(err =>{
-        console.log(err)
-        res.status(500).json({msg: "error", details: err})
-    });
-});
-// Single item
-app.get("/products/:id", function(req,res){
-    const clothid = req.query.clothid;
-    db.clothes.findAll({where: {id:clothid}}).then(single =>{
-        res.send(single)
-    }).catch(err =>{
-        console.log(err)
-        res.status(500).json({msg: "error", details: err})
-    });
-});
-
+require("./routes/routes")(app)
 
 app.listen(8887, function () {
     console.log('Server has started on port 8887')

@@ -31,7 +31,7 @@ export class MenComponent implements OnInit,OnDestroy {
   
 
   applyFilter(){
-    this.apiService.getFilter(this.sort,this.size).pipe(takeUntil(this.unsub)).subscribe(clothes => {
+    this.apiService.getFilter(this.sort,this.size,this.Gender).pipe(takeUntil(this.unsub)).subscribe(clothes => {
       this.products = clothes
       console.log(this.sort)
       console.log(this.size)
