@@ -12,16 +12,16 @@ export class ApiServiceService {
   constructor(private http: HttpClient) { }
 
 
-    getSpecific(clothid){
-      return this.http.get(`${this.apiUrl}products/${clothid}`)
+    getSpecific(id){
+      return this.http.get(`${this.apiUrl}${id}`)
     }
     
     getFilter(sort,size,gender){ 
-      return this.http.get(`${this.apiUrl}?sort=${sort}?size=${size}?gender=${gender}`)
+      return this.http.get(`${this.apiUrl}filter?sort=${sort}&size=${size}&gender=${gender}`)
     }
 
     getGender(gender){
       return this.http.get(`${this.apiUrl}?gender=${gender}`)
-      console.log(`${this.apiUrl}?gender=${gender}`)
+     
     }
 }

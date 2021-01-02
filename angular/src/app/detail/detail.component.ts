@@ -14,7 +14,7 @@ export class DetailComponent implements OnInit,OnDestroy {
   private unsub: Subject<any> = new Subject();
   cloth: any;
   error:any;
-  clothid = this.route.snapshot.paramMap.get('id')
+  clothid = this.route.snapshot.paramMap.get('id');
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute,) { }
 
   ngOnInit(){

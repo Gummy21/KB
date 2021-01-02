@@ -16,7 +16,6 @@ export class MenComponent implements OnInit,OnDestroy {
   Gender: Number = 1;
   sort: String = 'Sort by';
   size: String = 'Size';
-  id:1;
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit(){

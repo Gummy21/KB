@@ -3,16 +3,16 @@
         <div id="size" class="col-sm filters" >
           <select class="selectors" [(ngModel)]="size">
             <option selected>Size</option>
-            <option value="Small">S</option>
-            <option value="Medium">M</option>
-            <option value="Large">L</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
           </select>
         </div>
         <div id="sort" class="col-sm filters">
           <select class="selectors" [(ngModel)]="sort">
             <option selected>Sort by</option>
-            <option value="Low">Lowest price</option>
-            <option value="High">Highest price</option>
+            <option value="1">Lowest price</option>
+            <option value="2">Highest price</option>
 
           </select>
         </div>
@@ -25,7 +25,7 @@
       <div class="col-sm-4 card-deck" id="card" *ngFor="let clothes of products; let i = index">
         
         <div class="card text-left mb-3" >
-            <a routerLink="/detail/{{id}}">
+            <a routerLink="/clothes/{{clothes.id}}">
               <img class="card-img-top" id="img" src="{{clothes.img}}" alt="Card image cap">
             </a>  
             
