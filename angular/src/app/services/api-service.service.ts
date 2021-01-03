@@ -17,6 +17,7 @@ export class ApiServiceService {
     }
     
     getFilter(sort,size,gender){ 
+  
       return this.http.get(`${this.apiUrl}filter?sort=${sort}&size=${size}&gender=${gender}`)
     }
 

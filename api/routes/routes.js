@@ -1,8 +1,9 @@
 db  = require('../models/index')
 Clothes = require("../models/clothes")
 sequelize = db.sequelize
+Op = db.Sequelize.Op
+console.log(Op)
 db.clothes = Clothes
-
 module.exports = app => {
     let router = require("express").Router();
     
@@ -24,11 +25,11 @@ module.exports = app => {
 
     // Filter
     router.get("/filter", function(req,res){
-        let gender = req.query.gender;
-        let sort = req.query.sort;
-        let size = req.query.size;
-        let condition = gender ? {gender: gender}: null        
-        db.clothes.findAll({where:condition,order:filterOrder(sort)}).then (clothes =>{
+        const gender = Number(req.query.gender),
+              sort = req.query.sort,
+              size = req.query.size,
+              sizer  = sizeCheck(size);      
+        db.clothes.findAll({where: {size:sizer,gender:gender},order:filterOrder(sort)}).then (clothes =>{
             console.log(clothes)
             res.send(clothes)
             }).catch(err =>{
@@ -63,4 +64,15 @@ function filterOrder(sort){
         } else{
             return sequelize.literal('price DESC')
         }
+}
+
+function sizeCheck(size){
+    console.log(size)
+    if (size != "S" & size != "M" & size != "L"){
+        
+        return {[Op.like]:'%'} 
+    } else{
+        
+        return (size)
+    }
 }

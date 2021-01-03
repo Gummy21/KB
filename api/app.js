@@ -13,7 +13,7 @@ Op = db.sequelize
 db.clothes = Clothes
 db.sequelize.sync({logging:console.log})
 
-// seedDb = require('./seed')
+// seedDb = require('./seed/seed')
 // seedDb()
 
 app.use(cors(corsOptions))
