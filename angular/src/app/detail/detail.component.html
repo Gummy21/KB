@@ -1,1 +1,33 @@
-<p>detail works!</p>
+<div class="container mt-3">
+  <!-- <div class="loader" *ngIf="loading"></div>
+  <div *ngIf="!loading"> -->
+  <div *ngFor="let single of cloth">
+    <div class="row">
+      <div class="col-6">
+        <img
+          id="image"
+          class="border border-light rounded"
+          src="{{ single.img }}"
+        />
+      </div>
+      <div class="col-6">
+        <div id="info">
+          <h5 id="title">{{ single.title }}</h5>
+          <div id="second"class="border border-light rounded">
+            <div id="sizes">
+              <button class="btn btn-outline-light"  [disabled]="smclick" [ngStyle]="smclick?{'background-color': '#f8f9fa'} : {'background-color': 'inital'}" id="S">S</button>
+              <button class="btn btn-outline-light" [disabled]="medclick"  [ngStyle]="medclick?{'background-color': '#f8f9fa'} : {'background-color': 'inital'}" id="M">M</button>
+              <button class="btn btn-outline-light"  [disabled]="lgclick" [ngStyle]="lgclick?{'background-color': '#f8f9fa'} : {'background-color': 'inital'}" id="L">L</button>
+            </div>
+            <div id="pay">
+              <p>${{ single.price }}</p>
+              <button class="btn btn-outline-success">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div>
+    </div> -->
+  </div>
+</div>

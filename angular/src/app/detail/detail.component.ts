@@ -15,11 +15,18 @@ export class DetailComponent implements OnInit,OnDestroy {
   cloth: any;
   error:any;
   clothid = this.route.snapshot.paramMap.get('id');
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute,) { }
+  smclick:boolean = false;
+  medclick:boolean = false;
+  lgclick:boolean = false;
+  click = {};
+
+  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.apiService.getSpecific(this.clothid).pipe(takeUntil(this.unsub)).subscribe(clothes => {
-      console.log(clothes)
+      this.cloth = clothes;
+      this.click = this.cloth[0].size;
+      this.checkSize(this.click)
     },err => {
       this.error = err
     });
@@ -29,5 +36,25 @@ export class DetailComponent implements OnInit,OnDestroy {
   ngOnDestroy(){
     this.unsub.next();
     this.unsub.complete();
+  }
+
+  checkSize(size){
+
+    if(size === "S"){
+      
+      this.medclick = !this.medclick;
+      this.lgclick = !this.lgclick;
+      
+    }
+    else if (size === "M"){
+     
+      this.smclick = !this.smclick;
+      this.lgclick = !this.lgclick;
+    }
+    else if (size ==="L"){
+      
+      this.smclick = !this.smclick;
+      this.lgclick = !this.medclick;
+    }
   }
 }

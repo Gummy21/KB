@@ -2,8 +2,8 @@ db  = require('../models/index')
 Clothes = require("../models/clothes")
 sequelize = db.sequelize
 Op = db.Sequelize.Op
-console.log(Op)
 db.clothes = Clothes
+
 module.exports = app => {
     let router = require("express").Router();
     
