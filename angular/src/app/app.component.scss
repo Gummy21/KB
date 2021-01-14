@@ -29,4 +29,29 @@ footer{
     }
 }
 
+#cart-icon{
+    color: rgba(0,0,0, 0.5);
+    text-decoration: none;
+    &:hover {
+        color:rgba(0,0,0,0.8);
+        text-decoration: none;
+    } 
+}
 
+.cart-tab{
+    z-index:1;
+}
+#cart {
+    
+  position: absolute;
+  background-color: #f1f1f1;
+  width:260px;
+  min-width: 160px;
+  max-width:280px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.cart-info{
+    margin-left:0.5em
+}

@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'KB';
-}
+  cartinfo: boolean = false;
+
+  opencart(){
+      this.cartinfo = !this.cartinfo
+    }
+  }
+
+
+
