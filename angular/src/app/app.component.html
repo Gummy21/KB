@@ -1,103 +1,124 @@
 <div>
-  <nav class="navbar navbar-expand  ">
+  <nav class="navbar navbar-expand">
     <a class="navbar-brand" href="#">KB</a>
-    <ul class="navbar-nav ml-auto" >
-      <li class="nav-item ">
-        <a class="nav-link" routerLink= "home">Home</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="home">Home</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" routerLink= "mens">Men's</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="mens">Men's</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" routerLink= "womens">Women's</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="womens">Women's</a>
       </li>
     </ul>
-    <ul class="navbar-nav ml-auto" >
-    <li class="nav-item ">
-      
-        <svg (click)="opencart()" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-cart" id="cart-icon" viewBox="0 0 16 16">
-          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-        </svg>  
-       
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <svg
+          (click)="opencart()"
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          fill="currentColor"
+          class="bi bi-cart"
+          id="cart-icon"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+          />
+        </svg>
+
         <!-- <a class="nav-link" routerLink= "checkout"></a> -->
-      
-      
-       
-      
-    </li>
-   
+      </li>
     </ul>
   </nav>
-  <div class=" cart-tab d-flex justify-content-end">
+  <div class="cart-tab d-flex justify-content-end">
     <div id="cart" *ngIf="cartinfo">
-      <!-- *ngFor="let item in cart" -->
-      <div class="cart-info">
-     
-      <h5 class="cart-title mb-0">Blue Jeans</h5>
-      <img id="cart-img" alt="Card image cap">
-      <small class="text-muted">$30</small>
-      <button class="btn btn-info btn-sm">Go to cart</button> 
+      <div class="cart-items">
+        <div id="items" class="row mb-2" *ngFor="let item of cart">
+          <div class="col-3">
+              <img
+              id="cart-img"
+              src="{{item.img}}"
+              alt="Card image cap"
+            />  
+          </div>
+          <div class="col-9">
+            <h5 class="cart-title mb-0">{{item.title}}</h5>
+          
+            <div class="row">
+              <div class="col">
+
+                <small class="text-muted">Quantity:</small>
+              </div>
+
+              <div class="col">
+
+                <select class="form-select">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+            
+           
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="cart-btn">
+        <button id="cart-btn" class="btn btn-info btn-sm">Go to cart</button>
+      </div>
     </div>
   </div>
-  </div>
   <div class="container mt-3">
-    <router-outlet>
-
-      
-    </router-outlet>
+    <router-outlet> </router-outlet>
   </div>
   <footer>
     <div class="container pt-5 footer-bg">
-    <div class="row">
-      <div class="col-md">
-        
+      <div class="row">
+        <div class="col-md"></div>
+        <div class="col-md">
+          <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
+            <div class="mb-4 footer-headers">Products</div>
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" routerLink="men">Men</a>
+              </li>
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" routerLink="women">Woman</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
+            <div class="mb-4 footer-headers">Company</div>
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" routerLink="about">About</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
+            <div class="mb-4 footer-headers">Contact</div>
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" href="/">Facebook</a>
+              </li>
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" href="/">Twitter</a>
+              </li>
+              <li class="list-group-item bg-transparent border-0 p-0 mb-2">
+                <a class="links" href="/">Linkdin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="col-md">
-        <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
-          <div class="mb-4 footer-headers">Products</div>
-          <ul class="list-group" >
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links" routerLink= "men">Men</a>
-            </li>
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links" routerLink= "women">Woman</a>
-            </li>
-         
-
-          </ul>
-          
-        </div>
-        <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
-          <div class="mb-4 footer-headers">Company</div>
-          <ul class="list-group" >
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links" routerLink="about">About</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6 col-6 p-0 float-left mb-3">
-          <div class="mb-4 footer-headers">Contact</div>
-          <ul class="list-group" >
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links"href="/">Facebook</a>
-            </li>
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links"href="/">Twitter</a>
-            </li>
-            <li class="list-group-item bg-transparent border-0 p-0 mb-2">
-              <a class="links" href="/">Linkdin</a>
-            </li>
-         
-         
-
-          </ul>
-        </div>
-       
-        
-        
-      </div>
-    </div>
-
     </div>
   </footer>
 </div>
