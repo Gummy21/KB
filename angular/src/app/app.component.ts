@@ -1,34 +1,48 @@
-import { Component } from '@angular/core';
+import { Component,OnDestroy } from '@angular/core';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { CartService } from './services/cart.service'; 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  private unsub: Subject<any> = new Subject();
   title = 'KB';
   cartinfo: boolean = false;
-  cart = [
-    {
-      title:"Blue Shirt",
-      img:"https://cdn.shopify.com/s/files/1/1735/5687/products/levis-blue-baggy-3.png?v=1490911974"
-    }, 
-    {
-      title:"White Shirt",
-      img:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.topman.com%2Fwcsstore%2FTopMan%2Fimages%2Fcatalog%2FTM71T66MWHT_Zoom_F_1.jpg&f=1&nofb=1"
-    },
-    {
-      title:"Blue Shirt",
-      img:"https://cdn.shopify.com/s/files/1/1735/5687/products/levis-blue-baggy-3.png?v=1490911974"
-    }, 
-    {
-      title:"White Shirt",
-      img:"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.topman.com%2Fwcsstore%2FTopMan%2Fimages%2Fcatalog%2FTM71T66MWHT_Zoom_F_1.jpg&f=1&nofb=1"
-    }
-  ]
+  error:any;
+  cart = ['9','10','11']
+  cartItems:any;
+  // cart:[]
+  constructor(private cartService: CartService) { }
+  fillCart(){
+    // get Cart ids
+    // this.cart = this.cartService.retrieveCart()
+    this.cartService.getSpecificCart(this.cart).pipe(takeUntil(this.unsub)).subscribe(clothes => {
+      this.cartItems = clothes
+      console.log(clothes)
+    },err => {
+      this.error = err
+    });
+  }
+  
+  
+
 
   opencart(){
-      this.cartinfo = !this.cartinfo
+    
+    this.cartinfo = !this.cartinfo
+    if(this.cartinfo == true){
+      this.fillCart();
+    }
+  }
+
+    ngOnDestroy(){
+      this.unsub.next();
+      this.unsub.complete();
     }
   }
 

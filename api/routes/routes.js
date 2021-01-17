@@ -37,11 +37,45 @@ module.exports = app => {
                 res.status(500).json({msg: "error", details: err})
             });
     });
+    
+    //Send Cart
+    router.get("/cart/:cart", function (req, res) {
+      let cartid = req.params.cart;
+      var cartItems = [];
+      let arr = cartid.split(",");
+      let itemsProcessed = 0;
+      let num = 0
+      function callBack(items){
+        res.json(items)
+      };
+      
+      arr.forEach((id) => {
+        db.clothes
+          .findAll({ where: { id: id } })
+          .then(cartitem => {
+           
+            let items = cartitem[0]
+            cartItems.push(items)
+            num++
+            itemsProcessed++
+            if(itemsProcessed === arr.length) {
+                callBack(cartItems);
+            }
+          })
+        });
+
+      
+        
+      
+    
+    });
 
 
     // Single item
     router.get("/:id", function(req,res){
+        
         let clothid = req.params.id;
+        
         db.clothes.findAll({where: {id:clothid}}).then(single =>{
             res.send(single)
             console.log(single)
