@@ -36,7 +36,9 @@
   <div class="cart-tab d-flex justify-content-end">
     <div id="cart" *ngIf="cartinfo">
       <div class="cart-items">
+        <div class="empty d-flex justify-content-center" *ngIf="notEmpty">Your Shopping cart is empty</div>
         <div id="items" class="row mb-2" *ngFor="let item of cartItems">
+          
           <div class="col-3">
               <img
               id="cart-img"
@@ -72,7 +74,7 @@
       </div>
 
       <div class="cart-btn">
-        <button id="cart-btn" class="btn btn-info btn-sm">Go to cart</button>
+        <button id="cart-btn" class="btn btn-info btn-sm" routerLink="checkout">Go to cart</button>
       </div>
     </div>
   </div>

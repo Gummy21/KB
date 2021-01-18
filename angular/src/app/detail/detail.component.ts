@@ -3,6 +3,7 @@ import {ApiServiceService} from '../services/api-service.service'
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../services/cart.service'
 
 @Component({
   selector: 'app-detail',
@@ -19,8 +20,9 @@ export class DetailComponent implements OnInit,OnDestroy {
   medclick:boolean = false;
   lgclick:boolean = false;
   click = {};
+  
 
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiServiceService,private cartService: CartService, private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.apiService.getSpecific(this.clothid).pipe(takeUntil(this.unsub)).subscribe(clothes => {
@@ -31,6 +33,11 @@ export class DetailComponent implements OnInit,OnDestroy {
       this.error = err
     });
     
+  }
+
+  sendToCart(cartId){
+    this.cartService.addToCart(cartId);
+    console.log(cartId)
   }
 
   ngOnDestroy(){

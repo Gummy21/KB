@@ -21,7 +21,7 @@
             </div>
             <div id="pay">
               <p>${{ single.price }}</p>
-              <button class="btn btn-outline-success">Add to cart</button>
+              <button class="btn btn-outline-success" (click)="sendToCart(single.id)">Add to cart</button>
             </div>
           </div>
         </div>

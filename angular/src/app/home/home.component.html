@@ -7,7 +7,7 @@
    <div class="container">
      <div class="row">
       <div class="mens-tab">
-        <div class="card text-left mb-3" >
+        <div class="card text-left mb-3" *ngIf="isDatam" >
           <a routerLink="/clothes/{{m.id}}">
             <img class="card-img-top" id="img" src="{{m.img}}" alt="Card image cap">
           </a>  
@@ -22,7 +22,7 @@
 
 
       <div class="womens-tab">
-        <div class="card text-left mb-3" >
+        <div class="card text-left mb-3" *ngIf="isDataw" >
           <a routerLink="/clothes/{{w.id}}">
             <img class="card-img-top" id="img" src="{{w.img}}" alt="Card image cap">
           </a>  

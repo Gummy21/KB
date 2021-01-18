@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class WomenComponent implements OnInit,OnDestroy {
   private unsub: Subject<any> = new Subject();
-  products =  {};
+  products:any;
   error:any;
   index: 1;
   Gender: Number = 2;
