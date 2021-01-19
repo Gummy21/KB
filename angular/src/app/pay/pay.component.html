@@ -1,1 +1,34 @@
-<p>pay works!</p>
+
+  <div id="cart">
+    <div class="cart-items">
+      <div id="items" class="row mb-2" *ngFor="let cart of items">
+        <div class="col-3">
+          <img id="cart-img" src="{{ cart.img }}" alt="Card image cap" />
+        </div>
+        <div class="col-9">
+          <h5 class="cart-title mb-0">{{ cart.title }}</h5>
+
+          <div class="row">
+            <div class="col">
+              <small class="text-muted">Quantity:</small>
+            </div>
+
+            <div class="col">
+              <select class="form-select" >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-outline-success">Checkout</button>
+    </div>
+  </div>
+

@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
 import {  ApiServiceService } from './services/api-service.service' 
 import { PayComponent } from './pay/pay.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenComponent } from './men/men.component';
 import { WomenComponent } from './women/women.component';
 import { AboutComponent } from './about/about.component';

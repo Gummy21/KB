@@ -36,8 +36,8 @@
   <div class="cart-tab d-flex justify-content-end">
     <div id="cart" *ngIf="cartinfo">
       <div class="cart-items">
-        <div class="empty d-flex justify-content-center" *ngIf="notEmpty">Your Shopping cart is empty</div>
-        <div id="items" class="row mb-2" *ngFor="let item of cartItems">
+        <div class="empty d-flex justify-content-center" *ngIf="!isNotEmpty">Your Shopping cart is empty</div>
+        <div id="items" class="row mb-2" *ngFor="let item of cartItems; let i=index">
           
           <div class="col-3">
               <img
@@ -56,8 +56,9 @@
               </div>
 
               <div class="col">
-
-                <select class="form-select">
+                <div (click)="checkEmpty(i)">
+                <select class="form-select" [(ngModel)]="cart">
+                  <option>0</option>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -66,7 +67,7 @@
                 </select>
               </div>
             </div>
-            
+          </div>
            
           </div>
          

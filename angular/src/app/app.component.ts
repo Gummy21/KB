@@ -16,8 +16,9 @@ export class AppComponent implements OnDestroy {
   cartinfo: boolean = false;
   error:any;
   cartItems:any;
-  notEmpty:boolean = false;
-
+  isNotEmpty:boolean = true;
+  cartnum = 0;
+  cart: number = 1;
 
   constructor(private cartService: CartService) { }
   fillCart(){
@@ -38,13 +39,27 @@ export class AppComponent implements OnDestroy {
     
     this.cartinfo = !this.cartinfo
     if(this.cartinfo == true){
-      this.fillCart();
-      if(this.cartItems == undefined){
+      this.fillCart()
+      if(this.cartItems != undefined){
+        this.cartnum++
+      }
+     
+      if(this.cartnum >= 1){
         
-        this.notEmpty = true;
-       
+        this.isNotEmpty = true;
+        console.log(this.cartnum)
+        console.log(this.isNotEmpty)
+      }
+      else {
+        this.isNotEmpty = false;
       }
       
+    }
+  }
+
+  checkEmpty(key){
+    if(this.cart == 0){
+      delete this.cartItems[key]
     }
   }
 
