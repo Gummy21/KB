@@ -1,15 +1,21 @@
-import { Component,OnDestroy } from '@angular/core';
+import { Component,OnDestroy,OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
+
+
 import { CartService } from './services/cart.service'; 
+import { EventService } from './services/event.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
+  
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy,OnInit {
+
 
   private unsub: Subject<any> = new Subject();
   title = 'KB';
@@ -19,14 +25,33 @@ export class AppComponent implements OnDestroy {
   isNotEmpty:boolean = true;
   cartnum = 0;
   cart: number = 1;
+  checker = 1;
+  comp =""
+  boolean=""
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private eventService:EventService) { }
+  
+  ngOnInit(){
+    this.eventService.clickEvent.subscribe(msg=>{
+     
+      this.fillCart()
+      
+    })
+  }
+
   fillCart(){
 
     this.cartService.getSpecificCart(this.cartService.retrieveCart()).pipe(takeUntil(this.unsub)).subscribe(clothes => {
       this.cartItems = clothes
-     
-      console.log(clothes)
+      
+      
+      if(this.cartItems.length >= 1 ){
+        
+        this.checker = this.cartItems.length;
+        
+        this.cartChecker()
+      }
+      
     },err => {
       this.error = err
     });
@@ -39,29 +64,56 @@ export class AppComponent implements OnDestroy {
     
     this.cartinfo = !this.cartinfo
     if(this.cartinfo == true){
-      this.fillCart()
-      if(this.cartItems != undefined){
-        this.cartnum++
+      this.cartChecker()
+
+      } else{
+   
+        this.checker = 1;
+        this.isNotEmpty = false;
+        this.cartnum = 0;
+      }
       }
      
-      if(this.cartnum >= 1){
-        
+  
+
+  cartChecker(){
+    
+    if(this.cartItems == undefined || this.checker === this.cartItems.length){
+      
+      if(this.cartItems != undefined || this.cartItems > 0){
+        this.cartnum++
         this.isNotEmpty = true;
-        console.log(this.cartnum)
-        console.log(this.isNotEmpty)
+       
       }
       else {
         this.isNotEmpty = false;
+       
+
       }
-      
     }
   }
+  
+  
 
   checkEmpty(key){
     if(this.cart == 0){
-      delete this.cartItems[key]
+      this.cartService.removeFromCart(key);
+      this.cartItems.splice(key,1);
+      this.cartnum--
+      this.cart = 1;
+
+      if(this.checker <= 2){
+        this.checker = 1;
+      } else{
+        this.checker--
+      }
+      if(this.cartItems.length == 0){
+        this.isNotEmpty = false;
+      }
     }
   }
+  
+
 
     ngOnDestroy(){
       this.unsub.next();

@@ -1,9 +1,15 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import {ApiServiceService} from '../services/api-service.service'
+
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service'
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,6 +17,8 @@ import { CartService } from '../services/cart.service'
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit,OnDestroy {
+  
+ 
 
   private unsub: Subject<any> = new Subject();
   cloth: any;
@@ -20,9 +28,20 @@ export class DetailComponent implements OnInit,OnDestroy {
   medclick:boolean = false;
   lgclick:boolean = false;
   click = {};
+  check= false
+  clicked = "yes"
+
+  
   
 
-  constructor(private apiService: ApiServiceService,private cartService: CartService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiServiceService,
+    private cartService: CartService,
+    private route: ActivatedRoute,
+    private eventService:EventService) { }
+
+  
+
+ 
 
   ngOnInit(){
     this.apiService.getSpecific(this.clothid).pipe(takeUntil(this.unsub)).subscribe(clothes => {
@@ -64,4 +83,8 @@ export class DetailComponent implements OnInit,OnDestroy {
       this.lgclick = !this.medclick;
     }
   }
+  runFunc() {
+    this.eventService.clickEvent.emit(this.clicked)
+  }
+
 }

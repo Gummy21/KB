@@ -15,7 +15,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <svg
-          (click)="opencart()"
+          (click)="this.opencart();this.fillCart()"
           xmlns="http://www.w3.org/2000/svg"
           width="28"
           height="28"
@@ -59,7 +59,7 @@
                 <div (click)="checkEmpty(i)">
                 <select class="form-select" [(ngModel)]="cart">
                   <option>0</option>
-                  <option>1</option>
+                  <option >1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
@@ -80,7 +80,8 @@
     </div>
   </div>
   <div class="container mt-3">
-    <router-outlet> </router-outlet>
+    <app-detail (clickEvent)="fillCart()"></app-detail>
+    <router-outlet > </router-outlet>
   </div>
   <footer>
     <div class="container pt-5 footer-bg">

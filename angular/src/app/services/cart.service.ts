@@ -13,21 +13,26 @@ export class CartService {
 
   addToCart(item){
     //add id to cart when btn clicked in details tab
-    console.log(this.cart)
-    console.log("before")
     this.cart.push(item)
-    console.log(this.cart)
+    
   }
 
   getSpecificCart(cart){
-    console.log(cart)
+    
     return this.http.get(`${this.apiUrl}cart/${cart}`)
   }
 
   
   retrieveCart(){
     // Send db ids
-    console.log(this.cart)
+    
+    return this.cart;
+  }
+
+  removeFromCart(index){
+   
+    this.cart.splice(index,1);
+   
     return this.cart;
   }
 }
