@@ -1,4 +1,4 @@
-<div>
+
   <nav class="navbar navbar-expand">
     <a class="navbar-brand" href="#">KB</a>
     <ul class="navbar-nav ml-auto">
@@ -15,7 +15,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <svg
-          (click)="this.opencart();this.fillCart()"
+          (click)="this.opencart(); this.fillCart()"
           xmlns="http://www.w3.org/2000/svg"
           width="28"
           height="28"
@@ -29,59 +29,58 @@
           />
         </svg>
 
-        <!-- <a class="nav-link" routerLink= "checkout"></a> -->
+       
       </li>
     </ul>
   </nav>
   <div class="cart-tab d-flex justify-content-end">
     <div id="cart" *ngIf="cartinfo">
       <div class="cart-items">
-        <div class="empty d-flex justify-content-center" *ngIf="!isNotEmpty">Your Shopping cart is empty</div>
-        <div id="items" class="row mb-2" *ngFor="let item of cartItems; let i=index">
-          
-          <div class="col-3">
-              <img
-              id="cart-img"
-              src="{{item.img}}"
-              alt="Card image cap"
-            />  
-          </div>
-          <div class="col-9">
-            <h5 class="cart-title mb-0">{{item.title}}</h5>
-          
-            <div class="row">
-              <div class="col">
+        <div class="empty d-flex justify-content-center" *ngIf="!isNotEmpty">
+          Your Shopping cart is empty
+        </div>
+        <div *ngFor="let item of cartItems; let i = index">
+          <div class="row mb-2"  [ngClass]="{'items': in,'itemsout': out}">
+            <div class="col-3">
+              <img id="cart-img" src="{{ item.img }}" alt="Card image cap" />
+            </div>
+            <div class="col-9">
+              <h5 class="cart-title mb-0">{{ item.title }}</h5>
 
-                <small class="text-muted">Quantity:</small>
+              <div class="row">
+                <div class="col">
+                  <small class="text-muted">Quantity:</small>
+                </div>
+
+                <div class="col">
+                  <div (click)="checkEmpty(i) " >
+                    <select class="form-select" [(ngModel)]="cart">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-
-              <div class="col">
-                <div (click)="checkEmpty(i)">
-                <select class="form-select" [(ngModel)]="cart">
-                  <option>0</option>
-                  <option >1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
               </div>
             </div>
           </div>
-           
-          </div>
-         
         </div>
-      </div>
+      
 
       <div class="cart-btn">
-        <button id="cart-btn" class="btn btn-info btn-sm" routerLink="checkout">Go to cart</button>
+        <button id="cart-btn" class="btn btn-info btn-sm" routerLink="checkout">
+          Go to cart
+        </button>
       </div>
     </div>
   </div>
   <div class="container mt-3">
     <app-detail (clickEvent)="fillCart()"></app-detail>
-    <router-outlet > </router-outlet>
+    <router-outlet> </router-outlet>
   </div>
   <footer>
     <div class="container pt-5 footer-bg">
@@ -125,4 +124,4 @@
       </div>
     </div>
   </footer>
-</div>
+

@@ -62,10 +62,25 @@ footer{
     text-align: center;
     
 }
-#cart-btn{
-    
-}
 #cart-img{
     width:80%;
     height:auto;
+}
+
+.items{
+    animation: items 0.5s ease-in;
+}
+
+@keyframes items{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.itemsout{
+    animation: itemsout 0.5s ease-in;
+}
+
+@keyframes itemsout{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }

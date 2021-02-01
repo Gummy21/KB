@@ -26,8 +26,11 @@ export class AppComponent implements OnDestroy,OnInit {
   cartnum = 0;
   cart: number = 1;
   checker = 1;
-  comp =""
-  boolean=""
+  comp ="";
+  boolean="";
+  in: boolean = true;
+  out: boolean = false;
+  wait;
 
   constructor(private cartService: CartService, private eventService:EventService) { }
   
@@ -97,23 +100,30 @@ export class AppComponent implements OnDestroy,OnInit {
 
   checkEmpty(key){
     if(this.cart == 0){
-      this.cartService.removeFromCart(key);
-      this.cartItems.splice(key,1);
+
+      this.out = true
+      this.wait = setTimeout(()=>{
+      
+        this.cartItems.splice(key,1);
+        this.out = false
+        if(this.cartItems.length == 0){
+          this.isNotEmpty = false;
+        }
+      },400)
+      this.cartService.removeFromCart(key)  
       this.cartnum--
       this.cart = 1;
+     
+      
 
       if(this.checker <= 2){
         this.checker = 1;
       } else{
         this.checker--
       }
-      if(this.cartItems.length == 0){
-        this.isNotEmpty = false;
-      }
+      
     }
   }
-  
-
 
     ngOnDestroy(){
       this.unsub.next();
