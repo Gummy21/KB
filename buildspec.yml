@@ -1,17 +1,10 @@
 version: 0.2
 
-phases: 
-  install:
-    commands:
-      - echo Install phase
-    finally:
-      - echo install finally
+phases:
   pre_build:
     commands:
-      - echo Pre Build
+      - (cd angular; npm install )
+      - (cd api; npm install)
   build:
     commands:
-      - echo Build phase
-  post_build:
-    commands:
-      - echo Post Build
+      - (cd angular; ng build --prod)
