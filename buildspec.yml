@@ -10,9 +10,9 @@ phases:
       - (cd angular; npm run build:ci)
 artifacts:
   files:
-    - '**/*.html'
-    - '**/*.js'
-    - '**/*.css'
-    - '**/*.ico'
+    - 'dist/kb/*.html'
+    - 'dist/kb/*.js'
+    - 'dist/kb/*.css'
+    - 'dist/kb/*.ico'
   discard-paths: yes
-  base-directory: 'cd angular/dist/kb'
+  base-directory: 'angular'
