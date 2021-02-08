@@ -8,3 +8,11 @@ phases:
   build:
     commands:
       - (cd angular; npm run build:ci)
+artifacts:
+  files:
+    - '**/*.html'
+    - '**/*.js'
+    - '**/*.css'
+    - '**/*.ico'
+  discard-paths: yes
+  base-directory: 'angular/dist/kb'
