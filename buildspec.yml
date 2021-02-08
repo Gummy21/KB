@@ -15,4 +15,4 @@ artifacts:
     - '**/*.css'
     - '**/*.ico'
   discard-paths: yes
-  base-directory: 'angular/dist/kb'
+  base-directory: 'dist/kb'
