@@ -8,6 +8,7 @@ phases:
   build:
     commands:
       - (cd angular; npm run build:ci)
+      - (cd api; node app.js)
 artifacts:
   files:
     - 'dist/**/*.html'
