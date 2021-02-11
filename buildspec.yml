@@ -1,6 +1,12 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7
+      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - dpkg -i google-chrome*.deb
   pre_build:
     commands:
       - (cd angular; npm install )
@@ -8,12 +14,8 @@ phases:
   build:
     commands:
       - (cd angular; npm run build:ci)
-      - (cd api; node app.js)
-artifacts:
-  files:
-    - 'dist/**/*.html'
-    - 'dist/**/*.js'
-    - 'dist/**/*.css'
-    - 'dist/**/*.ico'
-  discard-paths: yes
-  base-directory: 'angular'
+      # - (cd api; node app.js)
+      - (cd angular; npm run test:ci )
+  post_build:
+    commands:
+      - aws s3 sync angular/dist/KB s3://kb-production --acl 'public-read' --delete
