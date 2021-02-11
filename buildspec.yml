@@ -18,4 +18,4 @@ phases:
       - (cd angular; npm run test:ci )
   post_build:
     commands:
-      - aws s3 sync angular/dist/KB s3://kb-production --acl 'public-read' --delete
+      - aws s3 sync angular/dist/KB s3://angular-kb-production --acl 'public-read' --delete
