@@ -26,4 +26,4 @@ phases:
             --exclude=".gitignore" \
             --exclude="package-lock.json" \
             --exclude=package.json" \
-            --acl 'public-read' --delete
+            --acl 'public-read' --delete --debug
