@@ -1,10 +1,10 @@
 
 const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('products', 'root', '', {
-  host: 'localhost',
+require('dotenv').config();
+const sequelize = new Sequelize(process.env.D_NAME, process.env.D_USER, process.env.D_PASS, {
+  host: process.env.AWS_DATABASE,
   dialect: 'mysql',
-  port: 3306,
+  port: process.env.AWS_PORT,
   define: {
     freezeTableName: true
   }
