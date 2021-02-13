@@ -25,5 +25,5 @@ phases:
             --exclude ".env" \
             --exclude ".gitignore" \
             --exclude "package-lock.json" \
-            --exclude package.json" \
+            --exclude "package.json" \
             --acl 'public-read' --delete --debug
