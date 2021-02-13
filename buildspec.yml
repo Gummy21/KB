@@ -20,10 +20,10 @@ phases:
     commands:
       - aws s3 sync angular/dist/KB s3://angular-kb-production --acl 'public-read' --delete
       - aws s3 sync api/ s3://angular-kb-api \
-            --exclude="infrastructure/*" \
-            --exclude="node_modules/*" \
-            --exclude=".env" \
-            --exclude=".gitignore" \
-            --exclude="package-lock.json" \
-            --exclude=package.json" \
+            --exclude "infrastructure/*" \
+            --exclude "node_modules/*" \
+            --exclude ".env" \
+            --exclude ".gitignore" \
+            --exclude "package-lock.json" \
+            --exclude package.json" \
             --acl 'public-read' --delete --debug
