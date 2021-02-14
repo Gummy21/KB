@@ -13,9 +13,8 @@ phases:
   build:
     commands:
       - (cd angular; npm run build:ci)
-      - (cd api; npm run zip)
       # - (cd angular; npm run test:ci )
   post_build:
     commands:
       - aws s3 sync angular/dist/KB s3://angular-kb-production --acl 'public-read' --delete
-      - aws s3 sync api/EBZip.zip s3://angular-kb-api --delete 
+      - aws s3 sync api/EBZip s3://angular-kb-api --delete 
