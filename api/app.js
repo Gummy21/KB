@@ -3,7 +3,7 @@ const express = require("express"),
       app     = express()
 require('dotenv').config();
 const corsOptions = {
-    origin: 'http://localhost:4200',
+    origin: 'http://angular-kb-production.s3-website-ap-southeast-2.amazonaws.com',
     optionsSuccessStatus: 200
 }
 

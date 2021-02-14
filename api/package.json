@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "zip": "7z a -tzip EBZip app.js seed routes models package.json .env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gummy",
