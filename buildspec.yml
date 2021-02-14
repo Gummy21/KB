@@ -17,4 +17,4 @@ phases:
   post_build:
     commands:
       - aws s3 sync angular/dist/KB s3://angular-kb-production --acl 'public-read' --delete
-      - aws s3 sync api s3://angular-kb-api --delete --exclude '*' --include 'EBZip.zip'
+      - aws s3 sync api s3://angular-kb-api --exclude '*' --include 'EBZip.zip' --acl 'public-read' --delete
