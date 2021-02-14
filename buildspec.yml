@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - (cd angular; npm run build:ci)
-      - (cd api; npmm run zip)
+      - (cd api; npm run zip)
       # - (cd angular; npm run test:ci )
   post_build:
     commands:
