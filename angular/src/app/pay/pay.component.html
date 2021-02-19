@@ -26,9 +26,11 @@
         </div>
       </div>
     </div>
-
-    <div class="d-flex justify-content-end">
+    <div class="container">
+    <div *ngIf="checker" class="d-flex justify-content-end">
       <button class="btn btn-outline-success">Checkout</button>
     </div>
+    <div *ngIf="!checker"><p id="empty">Your cart is empty</p></div>
+  </div>
   </div>
 

@@ -1,0 +1,14 @@
+
+#about-img{
+    height:auto;
+    width:100%;
+}
+
+@media screen and (max-width: 375px) {
+    #mobile-img{
+        display:none;
+    }
+    h1 {
+        text-align:center;
+    }
+  }

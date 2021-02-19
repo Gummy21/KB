@@ -20,3 +20,16 @@
     border: 0;
     margin-right:0.5em;
 }
+
+@media screen and (max-width: 375px) {
+    #image {
+        width:25vh;
+    }
+    #info {
+        margin-left:1em;
+    }
+    #second{
+        margin-left:0em;
+    }
+    
+  }
