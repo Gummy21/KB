@@ -21,14 +21,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.apiService.getGender(this.men).pipe(takeUntil(this.unsub)).subscribe(clothes => {
-      this.m = clothes[0]
+      this.m = clothes[4]
       console.log(clothes)
       this.isDatam = true;
     },err => {
       this.error = err
     });
     this.apiService.getGender(this.women).pipe(takeUntil(this.unsub)).subscribe(clothes => {
-      this.w = clothes[0]
+      this.w = clothes[5]
       console.log(clothes)
       this.isDataw = true;
     },err => {

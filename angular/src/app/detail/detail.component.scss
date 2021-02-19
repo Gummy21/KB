@@ -21,12 +21,25 @@
     margin-right:0.5em;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 768px) {
     #image {
         width:25vh;
     }
     #info {
-        margin-left:1em;
+        margin-left:0em;
+    }
+    #second{
+        margin-left:0em;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    #image {
+        width:25vh;
+    }
+    #info {
+        margin-left:0em;
     }
     #second{
         margin-left:0em;
