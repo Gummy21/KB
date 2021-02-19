@@ -1,12 +1,13 @@
 db  = require('../models/index')
 Clothes = require("../models/clothes")
+
 sequelize = db.sequelize
 Op = db.Sequelize.Op
 db.clothes = Clothes
 
 module.exports = app => {
     let router = require("express").Router();
-    
+
     // Gendered Clothes
 
     router.get("/", function (req,res){

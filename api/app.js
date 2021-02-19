@@ -1,6 +1,11 @@
 const express = require("express"),
+      cors    = require("cors"),
       app     = express()
 require('dotenv').config();
+const corsOptions = {
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200
+}
 
 db  = require('./models/index')
 Clothes = require("./models/clothes")

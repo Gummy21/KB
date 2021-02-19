@@ -8,7 +8,7 @@ import {environment} from "../../environments/environment"
 })
 export class CartService {
   private cart = [];
-  apiUrl =  environment.API_URL;
+  apiUrl =  "http://localhost:8887/api/";
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) { }
 

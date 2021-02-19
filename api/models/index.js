@@ -1,8 +1,8 @@
 
 const Sequelize = require('sequelize');
 require('dotenv').config();
-const sequelize = new Sequelize(process.env.D_NAME, process.env.D_USER, process.env.D_PASS, {
-  host: process.env.AWS_DATABASE,
+const sequelize = new Sequelize("products", "root", "", {
+  host: 'localhost',
   dialect: 'mysql',
   port: process.env.AWS_PORT,
   define: {

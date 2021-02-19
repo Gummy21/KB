@@ -17,3 +17,25 @@ $tab-padding: 5em;
     padding:$tab-padding;
     margin-left:0.5em;
 }
+.card-title {
+    text-align:center;
+}
+
+.home {
+    background-image: url(../../assets/images/home.jpg);
+    background-size: cover;
+    width:95vw;
+    height:70vh;
+    margin-left:2vw;
+    margin-top:2vh;
+    
+}
+
+
+#jumbo {
+    padding-top:20vh
+}
+
+#jumbo h1{
+    text-align:center;
+}

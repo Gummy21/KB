@@ -1,20 +1,18 @@
-<div class="jumbotron list-header border border-light">
-     <h1 class="display-4">Welcome</h1>
-     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta recusandae odit libe.</p>
-     <hr class="my-4">
-</div>
 
+  <div class="home"></div>
+
+<div class="container mt-3">
    <div class="container">
      <div class="row">
       <div class="mens-tab">
         <div class="card text-left mb-3" *ngIf="isDatam" >
-          <a routerLink="/clothes/{{m.id}}">
+          <a routerLink="/mens">
             <img class="card-img-top" id="img" src="{{m.img}}" alt="Card image cap">
           </a>  
           
           <div class="card-body list-group-item">
-          <h5 class="card-title">{{m.title}}</h5>
-          <small class="text-muted">${{m.price}}</small>
+          <h5 class="card-title">Shop Men's</h5>
+          
         </div>
       </div>
 
@@ -23,17 +21,17 @@
 
       <div class="womens-tab">
         <div class="card text-left mb-3" *ngIf="isDataw" >
-          <a routerLink="/clothes/{{w.id}}">
+          <a routerLink="/womens">
             <img class="card-img-top" id="img" src="{{w.img}}" alt="Card image cap">
           </a>  
           
           <div class="card-body list-group-item">
-          <h5 class="card-title">{{w.title}}</h5>
-          <small class="text-muted">${{w.price}}</small>
+          <h5 class="card-title">Shop Women's</h5>
+          
         </div>
       </div>
 
       </div>
     </div>
    </div>
-   
+  </div>

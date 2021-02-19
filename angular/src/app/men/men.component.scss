@@ -11,7 +11,10 @@ $no-border:0px;
     flex-grow: 0;
     margin-bottom: 2em;
 }
-
+hr {
+    margin-left:0;
+    width:30%
+}
 .card{
     border:$no-border
 }
