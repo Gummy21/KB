@@ -3,7 +3,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 
-import { environment } from '../environments/environment.prod'
 import { CartService } from './services/cart.service'; 
 import { EventService } from './services/event.service';
 
@@ -30,7 +29,6 @@ export class AppComponent implements OnDestroy,OnInit {
   boolean="";
   in: boolean = true;
   out: boolean = false;
-  test = environment.test
   wait;
   constructor(private cartService: CartService, private eventService:EventService) { }
   
