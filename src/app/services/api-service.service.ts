@@ -6,7 +6,7 @@ import {environment} from "../../environments/environment"
   providedIn: 'root'
 })
 export class ApiServiceService {
-  apiUrl =  "http://localhost:8887/api/" ;
+  apiUrl =  environment.API_URL ;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
