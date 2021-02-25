@@ -3,6 +3,6 @@
 
 export const environment = {
   production: true,
-  API_URL: "kb.probacks.xyz/api/"
+  API_URL: "https://kb.probacks.xyz/api/"
   //temp
 };
