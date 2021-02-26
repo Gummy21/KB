@@ -48,9 +48,9 @@ $tab-padding: 5em;
 }
 
 @media screen and (min-width: 1901px) {
-	.mens-tab{
-			height: 50vh !important;
-		}
+	.card-img-top{
+		height: 50vh;
+	}
 	  .home {
         height:50vh;
         margin: 0 2em 0 2em;
@@ -60,7 +60,7 @@ $tab-padding: 5em;
     .mens-tab{
 		
         width: $tab-width;
-        height: 50vh !important;
+        height: $tab-height!important;
         padding:$tab-padding;
         margin-right:0.5em;
     }
