@@ -7,6 +7,10 @@ $no-border:0px;
     
 }
 
+small {
+	font-size:larger;
+}
+
 hr {
     margin-left:0;
     width:30%
@@ -21,6 +25,7 @@ hr {
 }
 .card-body{
     border:$no-border;
+	background-color: #e9ecef;
 }
 
 

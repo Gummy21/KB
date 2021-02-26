@@ -47,12 +47,20 @@ $tab-padding: 5em;
     text-align:center;
 }
 
-
+@media screen and (min-width: 1901px) {
+	.mens-tab{
+			height: 50vh !important;
+		}
+	  .home {
+        height:50vh;
+        margin: 0 2em 0 2em;
+		}
+}
 @media screen and (max-width: 1900px) {
     .mens-tab{
-  
+		
         width: $tab-width;
-        height: $tab-height;
+        height: 50vh !important;
         padding:$tab-padding;
         margin-right:0.5em;
     }

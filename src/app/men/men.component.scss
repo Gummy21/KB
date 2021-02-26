@@ -7,6 +7,10 @@ $no-border:0px;
     
 }
 
+small {
+	font-size:larger;
+}
+
 .filters{
     flex-grow: 0;
     margin-bottom: 2em;
@@ -20,6 +24,7 @@ hr {
 }
 .card-body{
     border:$no-border;
+	background-color: #e9ecef;
 }
 
 
